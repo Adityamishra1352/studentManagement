@@ -72,7 +72,8 @@ func viewStudents(w http.ResponseWriter, r *http.Request) {
 }
 func addStudent(w http.ResponseWriter, r *http.Request) {
 	name := r.FormValue("name")
-	age := r.FormValue("age")
+	ageString := r.FormValue("age")
+	age, _ := strconv.Atoi(ageString)
 	enrollment := r.FormValue("enrollment")
 	var err error
 	_, err = db.Exec("INSERT INTO students (name, age, enrollment) VALUES (?, ?, ?)", name, age, enrollment)
