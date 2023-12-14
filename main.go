@@ -49,7 +49,7 @@ func addStudent(w http.ResponseWriter, r *http.Request) {
 	age := r.FormValue("age")
 	enrollment := r.FormValue("enrollment")
 	var err error
-	_, err := db.Exec("INSERT INTO students (name, age, enrollment) VALUES (?, ?, ?)", name, age, enrollment)
+	_, err = db.Exec("INSERT INTO students (name, age, enrollment) VALUES (?, ?, ?)", name, age, enrollment)
 	if err != nil {
 		fmt.Println("Error adding student to the database")
 		return
