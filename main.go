@@ -13,15 +13,30 @@ var db *sql.DB
 func operations(w http.ResponseWriter, r *http.Request) {
 	switch r.URL.Path {
 	case "/":
-		fmt.Fprint(w, "<h1>Hello I am default</h1>")
+		fmt.Fprint(w, "<h1>Hello I am Student Management API</h1>")
 	case "/delete":
 		fmt.Fprint(w, "<h1>Delete Student</h1>")
 	case "/add":
 		fmt.Fprint(w, "<h1>Add Student</h1>")
+		addStudent(w, r)
 	case "/update":
 		fmt.Fprint(w, "<h1>Update</h1>")
 	default:
 		fmt.Fprint(w, "Error")
+	}
+}
+func addStudent(w http.ResponseWriter, r *http.Request) {
+	name := r.FormValue("name")
+	age := r.FormValue("age")
+	enrollment := r.FormValue("enrolllment")
+	var err error
+	_, err = db.Exec("INSERT INTO students (name, age, enrollment) VALUES (?, ?, ?)", name, age, enrollment)
+	if err != nil {
+		fmt.Println("Error adding student to the database")
+		return
+	}
+	if err == nil {
+		fmt.Println("Student added successfully")
 	}
 }
 
