@@ -23,17 +23,33 @@ func operations(w http.ResponseWriter, r *http.Request) {
 		addStudent(w, r)
 	case "/update":
 		fmt.Fprint(w, "<h1>Update</h1>")
+		updateStudent(w, r)
 	default:
 		fmt.Fprint(w, "Error")
 	}
 }
-
+func updateStudent(w http.ResponseWriter, r *http.Request) {
+	var err error
+	idString := r.URL.Query().Get("id")
+	id, err := strconv.Atoi(idString)
+	if err != nil {
+		fmt.Println("Invalid Id Type")
+	}
+	name := r.FormValue("name")
+	ageString := r.FormValue("age")
+	age, _ := strconv.Atoi(ageString)
+	enrollment := r.FormValue("enrollment")
+	_, err = db.Exec("UPDATE students SET name=?,age=?, enrollment=? where id=?", name, age, enrollment, id)
+	if err != nil {
+		fmt.Println("Error updating the student record")
+	}
+}
 func addStudent(w http.ResponseWriter, r *http.Request) {
 	name := r.FormValue("name")
 	age := r.FormValue("age")
 	enrollment := r.FormValue("enrollment")
 	var err error
-	_, err = db.Exec("INSERT INTO students (name, age, enrollment) VALUES (?, ?, ?)", name, age, enrollment)
+	_, err := db.Exec("INSERT INTO students (name, age, enrollment) VALUES (?, ?, ?)", name, age, enrollment)
 	if err != nil {
 		fmt.Println("Error adding student to the database")
 		return
