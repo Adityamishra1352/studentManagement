@@ -1,0 +1,404 @@
+{
+	"info": {
+		"_postman_id": "903968b4-ecc3-4b4d-8c85-e9a2a738c050",
+		"name": "Student Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31812539"
+	},
+	"item": [
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "AditiMishra",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "21",
+							"type": "text"
+						},
+						{
+							"key": "enrollment",
+							"value": "201b014",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/update?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"update"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "AditiMishra",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "21",
+									"type": "text"
+								},
+								{
+									"key": "enrollment",
+									"value": "201b014",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/update?id=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 14 Dec 2023 18:15:17 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<h1>Update Student Details</h1>"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:4000/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "AdityaAgarwal",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "22",
+							"type": "text"
+						},
+						{
+							"key": "enrollment",
+							"value": "201b015",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/delete?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"delete"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "AdityaAgarwal",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:4000/delete",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "AdityaAgarwal",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "22",
+									"type": "text"
+								},
+								{
+									"key": "enrollment",
+									"value": "201b015",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/delete?id=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"delete"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "AdityaAgarwal",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 14 Dec 2023 18:14:49 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "23"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<h1>Delete Student</h1>"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:4000/add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Aditya Mishra",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "32",
+							"type": "text"
+						},
+						{
+							"key": "enrollment\n",
+							"value": "201B016",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:4000/add",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Aditya Mishra",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "32",
+									"type": "text"
+								},
+								{
+									"key": "enrollment\n",
+									"value": "201B016",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"add"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 14 Dec 2023 18:14:06 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "20"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<h1>Add Student</h1>"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:4000/view",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/view",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"view"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:4000/view",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"view"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 14 Dec 2023 18:14:56 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "183"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<h1>View Students</h1>ID: 3, Name: AdityAmishra, Age: 0, Enrollment: \nID: 8, Name: Adityamishra, Age: 22, Enrollment: 201b016\nID: 11, Name: Adityamishra, Age: 22, Enrollment: 201b016"
+				}
+			]
+		}
+	]
+}
