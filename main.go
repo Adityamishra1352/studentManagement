@@ -1,4 +1,4 @@
-package nain
+package main
 
 import (
 	"fmt"
@@ -18,4 +18,8 @@ func operations(w http.ResponseWriter, r *http.Request) {
 	default:
 		fmt.Fprint(w, "Error")
 	}
+}
+func main() {
+	http.HandleFunc("/", operations)
+	http.ListenAndServe("", nil)
 }
