@@ -22,8 +22,11 @@ func operations(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "<h1>Add Student</h1>")
 		addStudent(w, r)
 	case "/update":
-		fmt.Fprint(w, "<h1>Update</h1>")
+		fmt.Fprint(w, "<h1>Update Student Details</h1>")
 		updateStudent(w, r)
+	case "/view":
+		fmt.Fprint(w, "<h1>View Students</h1>")
+		viewStudents(w, r)
 	default:
 		fmt.Fprint(w, "Error")
 	}
@@ -42,6 +45,29 @@ func updateStudent(w http.ResponseWriter, r *http.Request) {
 	_, err = db.Exec("UPDATE students SET name=?,age=?, enrollment=? where id=?", name, age, enrollment, id)
 	if err != nil {
 		fmt.Println("Error updating the student record")
+	}
+}
+func viewStudents(w http.ResponseWriter, r *http.Request) {
+	rows, _ := db.Query("SELECT * FROM students")
+	defer rows.Close()
+	var students []string
+	for rows.Next() {
+		var id int
+		var name string
+		var age int
+		var enrollment string
+
+		err := rows.Scan(&id, &name, &age, &enrollment)
+		if err != nil {
+			fmt.Println("Error scanning student:", err)
+			continue
+		}
+
+		studentInfo := fmt.Sprintf("ID: %d, Name: %s, Age: %d, Enrollment: %s", id, name, age, enrollment)
+		students = append(students, studentInfo)
+	}
+	for _, student := range students {
+		fmt.Fprintln(w, student)
 	}
 }
 func addStudent(w http.ResponseWriter, r *http.Request) {
